@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Text Styles */
+.food-text-primary {
+  @apply text-brand-textPrimary font-primary;
+}
+
+.food-text-secondary {
+  @apply text-brand-textSecondary font-secondary;
+}
+
+.food-hero-text {
+  @apply text-brand-heroText font-primary;
+}
+
+.food-footer-text {
+  @apply text-brand-footerText font-secondary;
+}
+
+/* Backgrounds */
+.food-hero-bg {
+  @apply bg-brand-primary;
+}
+
+.food-main-bg {
+  @apply bg-brand-mainBg;
+}
+
+/* Buttons */
+.food-btn {
+  @apply rounded-btn px-10 py-2 font-primary font-semibold transition-all duration-200;
+}
+
+.food-btn-primary {
+  @apply text-white;
+  box-shadow: 0px 20px 40px 0px #FFAE004A, 0px 5px 10px 0px #FFAE0042;
+  background-color: #FFB30E;
+}
+
+.food-btn-secondary {
+  @apply bg-transparent text-[#FFB30E] border border-[#FFB30E];
+  box-shadow: none;
+}
+
+
+/* Badges */
+.food-badge {
+  @apply rounded-badge px-3 py-1 text-xs font-medium font-secondary;
+}
+.food-badge-accent {
+  @apply bg-brand-accent text-white;
+}
+.food-badge-neutral {
+  @apply bg-brand-neutral text-brand-textSecondary;
+}
+
+/* Cards */
+.food-card {
+  @apply bg-brand-mainBg rounded-lg shadow-md p-6;
+}
