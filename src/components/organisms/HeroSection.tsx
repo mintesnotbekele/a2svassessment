@@ -35,18 +35,19 @@ export const HeroSection: React.FC = () => {
           </motion.p>
           <MealSearchBar />
         </div>
-        <div className="lg:flex-[0.4] flex-1 relative w-full h-96 lg:h-[500px]">
-          <Image
-            src={HeroFood}
-            alt="Delicious food"
-            className="rounded-xl absolute bottom-0 right-0 object-contain z-20"
-            style={{
-              width: '500px',
-              height: '500px',
-              transform: 'translate(0%, 19%)', 
-            }}
-          />
-        </div>
+        <div className="lg:flex-[0.4] flex-1 relative w-full h-96 lg:h-[500px] hidden lg:block">
+            <Image
+              src={HeroFood}
+              alt="Delicious food"
+              className="rounded-xl absolute bottom-0 right-0 object-contain z-20"
+              style={{
+                width: '500px',
+                height: '500px',
+                transform: 'translate(0%, 19%)', 
+              }}
+            />
+          </div>
+
       </div>    
     </section>
   );
