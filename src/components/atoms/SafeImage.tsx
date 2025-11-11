@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SafeImage({
   src,
-  fallback = "/fallback.png",
+  fallback = "https://avatars.githubusercontent.com/u/39144284",
   alt,
   className,
 }: {
