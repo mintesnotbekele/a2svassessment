@@ -44,8 +44,27 @@
   box-shadow: none;
 }
 
+.food-btn-gradient {
+  @apply rounded-btn px-6 py-3 font-primary font-semibold text-white transition-all duration-200;
+  background: linear-gradient(95.71deg, #FF7A7A -39.64%, #F75900 135.31%);
+}
 
-/* Badges */
+
+.food-btn-delivery {
+  @apply flex items-center gap-2 px-3 py-1.5 rounded-xl font-medium text-[#F17228] shadow-sm;
+  background-color: rgba(241, 114, 40, 0.1); 
+  border: 0px solid #F17228; 
+}
+
+.food-btn-pickup {
+  @apply flex items-center gap-2 px-3 py-1.5 rounded-xl font-medium text-[#F17228] shadow-sm;
+  background-color: #FFFF; 
+  border: 1px solid #F17228;
+  border: none;
+  color: #757575;
+}
+
+
 .food-badge {
   @apply rounded-badge px-3 py-1 text-xs font-medium font-secondary;
 }
@@ -56,7 +75,6 @@
   @apply bg-brand-neutral text-brand-textSecondary;
 }
 
-/* Cards */
 .food-card {
   @apply bg-brand-mainBg rounded-lg shadow-md p-6;
 }
