@@ -2,15 +2,15 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 
 export default {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",     // ← REQUIRED for Next.js 13/14/15
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",     
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",     // ← In case you're using /src structure
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",    
   ],
   theme: {
     extend: {
       colors: {
         brand: {
-          primary: '#FFB30E', // hero bg
+          primary: '#FFB30E', 
           secondary: '#FF5722',
           accent: '#00BFA6',
           neutral: '#F3F4F6',
@@ -25,8 +25,8 @@ export default {
         },
       },
       fontFamily: {
-        primary: ['Source Sans Pro', ...fontFamily.sans],
-        secondary: ['Open Sans', ...fontFamily.sans],
+        primary: ["var(--font-source-sans)", ...fontFamily.sans],
+        secondary: ["var(--font-open-sans)", ...fontFamily.sans],
       },
       boxShadow: {
         'btn-primary-lg': '0px 20px 40px 0px #FFAE004A',
