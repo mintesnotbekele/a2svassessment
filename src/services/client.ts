@@ -1,4 +1,3 @@
-// src/services/api/client.ts
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://6852821e0594059b23cdd834.mockapi.io/';
@@ -19,7 +18,7 @@ class ApiClient {
   }
 
   private setupInterceptors(): void {
-    // Request interceptor
+ 
     this.client.interceptors.request.use(
       (config) => {
         // Add auth token if available

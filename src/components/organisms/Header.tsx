@@ -3,12 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
+import { useModal } from "@/hooks/useModal";
+import { useFood } from "@/hooks/useFood";
+import { FoodFormData } from "@/types/food.types";
+import { FoodModal } from "./FoodModal";
+import { Button } from "../atoms/Button";
 
-export const Header: React.FC = ({ }) => {
+
+interface HeaderProps {
+  onAddFood?: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({onAddFood }) => {
     
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const addModal = useModal();
+    const { addFood } = useFood();
     useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -18,6 +29,27 @@ export const Header: React.FC = ({ }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+      const handleAddFood = async (data: FoodFormData) => {
+    try {
+      await addFood(data);
+      addModal.close();
+    } catch (error) {
+      console.error('Error adding food:', error);
+    }
+  };
+
+   const handleAddMealClick = () => {
+    if (onAddFood) {
+      onAddFood();
+    } else {
+      addModal.open();
+    }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+  
   return (
     <>
       <header className={`sticky top-0 z-50 bg-white transition-all duration-300  ${
@@ -36,11 +68,12 @@ export const Header: React.FC = ({ }) => {
                     priority
                 />
                 </Link>
-              <button               
+              <Button     
+              onClick={handleAddMealClick}          
                 className="food-btn-primary food-btn "
               >
                 Add Meal
-              </button>
+              </Button>
             </div>
           </div>
           <div className="hidden md:block lg:hidden">
@@ -55,12 +88,12 @@ export const Header: React.FC = ({ }) => {
                   priority
                 />
               </Link>     
-              <button
-               
+              <Button
+               onClick={handleAddMealClick}
                 className="food-btn-primary food-btn w-full"
               >
                 Add Meal
-              </button>
+              </Button>
             </div>
           </div>  
           <div className="block md:hidden">
@@ -158,11 +191,12 @@ export const Header: React.FC = ({ }) => {
                       </Link>
                     </nav>
                     <div className="border-t pt-4">
-                      <button
+                      <Button
+                        onClick={handleAddMealClick}
                         className="food-btn-primary food-btn w-full"
                       >
                         Add Meal
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
@@ -171,6 +205,14 @@ export const Header: React.FC = ({ }) => {
           </AnimatePresence>
         </div>
       </header>
+      {!onAddFood && (
+        <FoodModal
+          isOpen={true}
+          onClose={addModal.close}
+          onSubmit={handleAddFood}
+          mode="add"
+        />
+      )}
      </>
   );
 };

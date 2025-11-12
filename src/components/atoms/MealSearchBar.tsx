@@ -12,7 +12,7 @@ export default function MealSearchBar() {
     >
       <div className="bg-white rounded-2xl w-full flex flex-col ">
         <div className="flex items-center justify-start gap-3 rounded-xl p-5">
-          <Button className="food-btn-delivery flex items-center gap-2" >
+          <Button className="food-btn-delivery text-bold flex items-center gap-2" >
             <Image
               src="/DeliveryIcon.svg"
               alt="Delivery"
