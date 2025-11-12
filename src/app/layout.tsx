@@ -1,6 +1,7 @@
 import { Source_Sans_3 } from 'next/font/google';
 import "./globals.css";
 import { Providers } from "./providers";
+import { ReactNode } from 'react';
 
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
@@ -8,13 +9,12 @@ const sourceSans = Source_Sans_3({
   weight: ["300", "400", "600", "700"],
 });
 
-// const openSans = Open_Sans({
-//   variable: "--font-open-sans",
-//   subsets: ["latin"],
-//   weight: ["300", "400", "600", "700"],
-// });
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${sourceSans.variable} `}>
