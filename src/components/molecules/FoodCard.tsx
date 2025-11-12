@@ -8,20 +8,7 @@ import SafeImage from "@/components/atoms/SafeImage";
 import { DeleteModal } from "../organisms/FoodDeleteDialog";
 
 interface FoodCardProps {
-  food: {
-    id: string;
-    name: string;
-    avatar: string;
-    rating: number;
-    Price: number;
-    isOpen: boolean;
-    category?: string;
-    restaurant: {
-      name: string;
-      logo: string;
-      status: "Open Now" | "Closed";
-    };
-  };
+  food: any;
   onEdit?: (food: FoodCardProps["food"]) => void;
   onDelete?: (food: FoodCardProps["food"]) => void;
 }
@@ -119,6 +106,7 @@ export const FoodCard: React.FC<FoodCardProps> = ({ food, onEdit, onDelete }) =>
                         <button
                           onClick={handleEdit}
                           className="text-gray-700 hover:text-gray-900 px-10 text-start  font-medium transition-colors"
+                          data-testid="food-edit-btn"
                         >
                           Edit
                         </button>
@@ -130,7 +118,8 @@ export const FoodCard: React.FC<FoodCardProps> = ({ food, onEdit, onDelete }) =>
                           <button
                             onClick={handleDeleteClick}
                             className="text-red-500 hover:text-red-600 px-10 text-start font-medium transition-colors"
-                          >
+                             data-testid="food-delete-btn"
+                           >
                             Delete
                           </button>
                         </>

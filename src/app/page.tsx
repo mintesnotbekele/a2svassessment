@@ -3,10 +3,10 @@ import { Header } from "@/components/organisms/Header";
 import { HeroSection } from "@/components/organisms/HeroSection";
 import { Footer } from "@/components/organisms/Footer";
 import { FeaturedMeals } from "@/components/organisms/FeaturedMeals";
-import { Food } from "@/types/food.types";
+import { Food, FoodFormData } from "@/types/food.types";
 import { useCallback, useEffect, useState } from "react";
 import { useModal } from "@/hooks/useModal";
-import { FoodFormData, FoodModal } from "@/components/organisms/FoodModal";
+import {  FoodModal } from "@/components/organisms/FoodModal";
 import { useFood } from "@/hooks/useFood";
 
 export default function Home() {
@@ -40,11 +40,6 @@ const { addFood, editFood, removeFood, loading, error } = useFood();
     editModal.close();
     setSelectedFood(null);
   }, [editModal]);
-
-  const handleCloseDeleteModal = useCallback(() => {
-    deleteModal.close();
-    setSelectedFood(null);
-  }, [deleteModal]);
 
     const handleAddFood = async (data: FoodFormData) => {
     setIsProcessing(true);

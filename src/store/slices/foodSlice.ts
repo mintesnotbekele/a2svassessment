@@ -78,7 +78,7 @@ const foodSlice = createSlice({
       })
       .addCase(fetchFoods.fulfilled, (state, action) => {
         state.loading = false;
-        state.foods = action.payload;
+        state.foods = action.payload as unknown as Food[];
       })
       .addCase(fetchFoods.rejected, (state, action) => {
         state.loading = false;
@@ -92,7 +92,7 @@ const foodSlice = createSlice({
       })
       .addCase(createFood.fulfilled, (state, action) => {
         state.loading = false;
-        state.foods.unshift(action.payload);
+       state.foods = action.payload as unknown as Food[];
       })
       .addCase(createFood.rejected, (state, action) => {
         state.loading = false;
@@ -108,7 +108,7 @@ const foodSlice = createSlice({
         state.loading = false;
         const index = state.foods.findIndex(food => food.id === action.payload.id);
         if (index !== -1) {
-          state.foods[index] = action.payload;
+              state.foods[index] = action.payload as unknown as Food;
         }
       })
       .addCase(updateFood.rejected, (state, action) => {

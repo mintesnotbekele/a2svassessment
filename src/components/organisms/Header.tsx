@@ -31,6 +31,7 @@ export const Header: React.FC<HeaderProps> = ({onAddFood }) => {
 
 
       const handleAddFood = async (data: FoodFormData) => {
+        console.log(data)
     try {
       await addFood(data);
       addModal.close();
@@ -71,6 +72,7 @@ export const Header: React.FC<HeaderProps> = ({onAddFood }) => {
               <Button     
               onClick={handleAddMealClick}          
                 className="food-btn-primary food-btn "
+                data-testid="header-add-meal-btn"
               >
                 Add Meal
               </Button>

@@ -19,7 +19,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={`${sourceSans.variable} `}>
         <Providers> {children}</Providers>
-
       </body>
     </html>
   );

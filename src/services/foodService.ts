@@ -52,7 +52,7 @@ class FoodService {
       name: data.food_name,
       rating: data.food_rating,
       image: data.food_image,
-      price: data.food_price,
+      // price: data?.food_price || "0",
       restaurant: {
         name: data.restaurant_name,
         logo: data.restaurant_logo,

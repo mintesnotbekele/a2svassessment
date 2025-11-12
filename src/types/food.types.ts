@@ -2,7 +2,7 @@
 export interface Restaurant {
   name: string;
   logo: string;
-  status: 'Open Now' | 'Closed';
+  status: 'Open' | 'Closed';
 }
 
 export interface Food {
@@ -14,7 +14,7 @@ export interface Food {
   open: boolean;
   logo: string;
   Price: string | number;
-
+  
   // Optional food-related fields
   food_name?: string;
   food_rating?: string;
@@ -37,17 +37,18 @@ export interface Food {
   restaurant?: Restaurant;
 }
 
-export interface FoodFormData {
+export type FoodFormData = {
+  // Mandatory meal fields
   food_name: string;
-  food_rating: string;
+  food_rating: string; // keep as string to match input type
   food_image: string;
-  food_price: number;
-  open : 'true' | 'false';
-  food_description?: string;
-  restaurant_name: string;
-  restaurant_logo: string;
-  restaurant_status: 'Open Now' | 'Closed';
-}
+
+  // Optional restaurant fields
+  restaurant_name?: string;
+  restaurant_logo?: string;
+  restaurant_status?: "Open" | "Closed";
+};
+
 
 
 export interface ApiResponse<T> {

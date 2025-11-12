@@ -6,14 +6,14 @@ import { Button } from '@/components/atoms/Button';
 import { Spinner } from '@/components/atoms/Spinner';
 import { RootState, AppDispatch } from '@/store/store';
 import { fetchFoods, setSearchTerm } from '@/store/slices/foodSlice';
-import { Food } from '@/types/food.types';
+
 import { ChevronRight } from 'lucide-react';
 
 
 interface FeaturedMealsProps {
   onAddFood: () => void;
-  onEditFood: (food: Food) => void;
-  onDeleteFood: (food: Food) => void;
+  onEditFood: (food: any) => void;
+  onDeleteFood: (food: any) => void;
 }
 
 export const FeaturedMeals: React.FC<FeaturedMealsProps> = ({
@@ -27,7 +27,7 @@ export const FeaturedMeals: React.FC<FeaturedMealsProps> = ({
   );
 
   useEffect(() => {
-    dispatch(fetchFoods());
+    dispatch(fetchFoods(undefined));
   }, []);
 
 

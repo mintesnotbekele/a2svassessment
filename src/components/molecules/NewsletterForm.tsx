@@ -3,8 +3,6 @@ import { Mail } from "lucide-react";
 
 export const NewsletterForm: React.FC = () => (
   <div className="flex flex-col sm:flex-row gap-2 mt-2">
-
-    {/* Input wrapper with icon */}
     <div className="relative flex-1">
       <Mail
         size={28}
